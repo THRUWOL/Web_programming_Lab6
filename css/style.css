@@ -1,0 +1,235 @@
+body {
+    background-color: rgb(255, 250, 221);
+}
+.main-section{
+    display:flex;
+    flex-grow: 1;
+}
+.navigation, .rating-section{
+    width:25%;
+
+}
+.rating-section{
+    height: auto;
+}
+/*----- Навигация*/
+input[name = "btn"]{
+    display:none;
+}
+.navigation
+{
+    background-color: rgb(255, 250, 221);
+}   
+.navigation__item
+{
+    display: block;
+    font-size: 24px;
+    padding: 15px;
+    cursor: pointer;
+}
+.navigation__item:hover{ 
+    background-color: rgba(41, 90, 99, 0.562);
+}
+
+input[id='light']:checked~.navigation>.navigation__item[for='light'],
+input[id='dark']:checked~.navigation>.navigation__item[for='dark'],
+input[id='red']:checked~.navigation>.navigation__item[for='red'],
+input[id='white']:checked~.navigation>.navigation__item[for='white']
+{
+    background-color: rgb(28, 32, 34);
+    color: rgb(255, 250, 221);
+}
+
+#light:checked ~ .items-section > .item-card:not(.light),
+#dark:checked ~ .items-section > .item-card:not(.dark),
+#red:checked ~ .items-section > .item-card:not(.red),
+#white:checked ~ .items-section > .item-card:not(.white){
+   opacity: 0.1;
+}
+
+#light:checked ~ .items-section > .item-card:not(.light) > .item-card__info,
+#dark:checked ~ .items-section > .item-card:not(.dark) > .item-card__info,
+#red:checked ~ .items-section > .item-card:not(.red) > .item-card__info,
+#white:checked ~ .items-section > .item-card:not(.white) > .item-card__info{
+   display: none;
+}
+
+
+/*-----предметы*/
+.items-section{
+    width:75%;
+    display:flex;
+    flex-wrap:wrap;
+    margin:0;
+}
+
+.item-card{
+    height: 200px;
+    overflow: hidden;
+    position:relative;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    
+}
+.item-card__image{
+    width:100%;
+    height:100%;
+}
+.item-card__info
+{
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 25px;
+    font-size:18px;
+    padding: 15px 10px;
+    margin: 0;
+    color: #fff;
+    background-color: rgba(70, 69, 69, 0.7);
+}
+.item-card:hover > .item-card__info
+{
+    display: block;
+}
+
+.item-card.col-1
+{
+    overflow: hidden;
+    flex: 0 0 32%;
+}
+.item-card.col-2-2{
+    overflow: hidden;
+    flex: 1 1 33%;
+}
+.item-card.col-1-2{
+    overflow: hidden;
+    flex: 1 1 33%;
+}
+.item-card.col-2
+{
+    overflow: hidden;
+    flex: 0 0 66%;
+}
+
+.item-card.col-3
+{
+    overflow: hidden;
+    flex: 0 0 99%;
+}
+/*-----рейтинг*/
+.rating-section{
+    background-color: rgb(255, 250, 221);;
+    display:flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-self: flex-start;
+    height: auto;
+}
+.rating-header{
+    text-transform: uppercase;
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+}
+.rate-card{
+    margin-left: 20px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+.rate-card-sect{
+    display:flex;
+}
+.rate-name{
+    font-size:20px;
+}
+.rate-value{
+    align-self:center;
+    margin-left:5px;
+    font-weight: bold;
+    
+}
+.rate-scale{
+    align-self:center;
+    height:20px;
+}
+.rating-section>input[name='card-rating']{
+    display:none;
+}
+
+input[name="card-rating"][value="10"] +.rate-card > .rate-card-sect>.rate-scale,
+input[name="card-rating"][value="9"] +.rate-card > .rate-card-sect>.rate-scale{
+    width:130px;
+    background: linear-gradient(to right, #00ff9d, #00aeff);
+}
+input[name="card-rating"][value="8"] +.rate-card > .rate-card-sect>.rate-scale,
+input[name="card-rating"][value="9"] +.rate-card > .rate-card-sect>.rate-scale{
+    width:110px;
+    background: linear-gradient(to right, #229468, #d400ff);
+}
+input[name="card-rating"][value="6"] +.rate-card > .rate-card-sect>.rate-scale,
+input[name="card-rating"][value="5"] +.rate-card > .rate-card-sect>.rate-scale
+{
+    width:90px;
+    background: linear-gradient(to right, #30bd1e, #0b992e);
+}
+input[name="card-rating"][value="4"] +.rate-card > .rate-card-sect>.rate-scale,
+input[name="card-rating"][value="3"] +.rate-card > .rate-card-sect>.rate-scale{
+    width:70px;
+    background: linear-gradient(to right, #e05b0e, #e26a08);
+}
+input[name="card-rating"][value="2"] +.rate-card > .rate-card-sect>.rate-scale,
+input[name="card-rating"][value="1"] +.rate-card > .rate-card-sect>.rate-scale{
+    width:30px;
+    background: linear-gradient(to right, #e05b0e, #ff0000);
+}
+
+#desc:checked ~ input[name='card-rating'][value='10'] + .rate-card
+{
+    order: 1;
+}
+
+#desc:checked ~ input[name='card-rating'][value='9'] + .rate-card
+{
+    order: 2;
+}
+
+#desc:checked ~ input[name='card-rating'][value='8'] + .rate-card
+{
+    order: 3;
+}
+
+#desc:checked ~ input[name='card-rating'][value='7'] + .rate-card
+{
+    order: 4;
+}
+
+#desc:checked ~ input[name='card-rating'][value='6'] + .rate-card
+{
+    order: 5;
+}
+
+#desc:checked ~ input[name='card-rating'][value='5'] + .rate-card
+{
+    order: 6;
+}
+
+#desc:checked ~ input[name='card-rating'][value='4'] + .rate-card
+{
+    order: 7;
+}
+
+#desc:checked ~ input[name='card-rating'][value='3'] + .rate-card
+{
+    order: 8;
+}
+
+#desc:checked ~ input[name='card-rating'][value='2'] + .rate-card
+{
+    order: 9;
+}
+
+#desc:checked ~ input[name='card-rating'][value='1'] + .rate-card
+{
+    order: 10;
+}
